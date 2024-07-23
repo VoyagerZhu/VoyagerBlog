@@ -1,7 +1,6 @@
 '我的主页'
 import streamlit as st
 import requests
-import json
 import time 
 import os 
 import re
@@ -12,7 +11,7 @@ def page_1():
     st.subheader("每日一句")
     url = "https://open.iciba.com/dsapi/"
     r = requests.get(url)
-    dic = json.loads(r.content)
+    dic = eval(r.content)
     sentence_eng = dic["content"]
     sentence_ch = dic["note"]
     bg_img = dic["picture2"]
