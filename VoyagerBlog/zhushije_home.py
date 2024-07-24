@@ -50,7 +50,7 @@ def page_2():
                     new_blog_title = ""
                 else:
                     ltime = str(time.time())
-                    address = "VoyagerBlog\blogs\{}.txt".format(ltime)
+                    address = "VoyagerBlog/blogs/{}.txt".format(ltime)
                     strf_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime())
                     with open(address,"w",encoding='utf-8')as f:
                         new_blog = str(new_blog_title)+"\n"+str(new_blog_content)+"\n"+strf_time+"\n"+st.session_state.username
