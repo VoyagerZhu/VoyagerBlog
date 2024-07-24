@@ -27,9 +27,9 @@ def page_2():
     blog_upload_time_list = []
     bloggers = []
     with tab2:
-        files = os.listdir('./blogs')
+        files = os.listdir('./VoyagerBlog/blogs')
         for file in files:
-            address = "blogs\{}".format(file)
+            address = "VoyagerBlog/blogs/{}".format(file)
             with open(address,"r",encoding='utf-8')as f:
                 blog_list = f.read().split("\n")
                 blog_title = blog_list[0]
@@ -50,7 +50,7 @@ def page_2():
                     new_blog_title = ""
                 else:
                     ltime = str(time.time())
-                    address = "blogs\{}.txt".format(ltime)
+                    address = "VoyagerBlog\blogs\{}.txt".format(ltime)
                     strf_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime())
                     with open(address,"w",encoding='utf-8')as f:
                         new_blog = str(new_blog_title)+"\n"+str(new_blog_content)+"\n"+strf_time+"\n"+st.session_state.username
@@ -72,7 +72,7 @@ def page_3():
     pass
 
 def page_4():
-    with open("passwords.txt","r",encoding='utf-8')as f:
+    with open("VoyagerBlog/passwords.txt","r",encoding='utf-8')as f:
         passwords_list = f.read().split("\n")
     for i in range(len(passwords_list)):
         passwords_list[i] = passwords_list[i].split("#")
@@ -110,7 +110,7 @@ def page_4():
                             st.session_state.logged_in = True
                             st.session_state.username= login_name
                             st.balloons()
-                            with open("passwords.txt","a",encoding='utf-8')as f:
+                            with open("VoyagerBlog/passwords.txt","a",encoding='utf-8')as f:
                                 f.write("\n"+login_name+"#"+login_passward)
 
 #运行区
